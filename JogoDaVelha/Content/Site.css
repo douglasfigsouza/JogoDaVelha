@@ -1,12 +1,15 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    width:980px;
+    margin:auto;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +25,26 @@ select,
 textarea {
     max-width: 280px;
 }
+button {
+    width:80px;
+    height:80px;
+    background-color:#ffffff;
+    color:#000000;
+    font-weight:bold;
+}
+table td{
+    padding:2px;
+    border:solid 5px #000000;
+}
+table tr{
+    border:solid 5px #000000;
+}
+#jogo {
+    width:50%;
+    margin:auto;
+}
+#jogo h1{
+    text-align:center;
+    color:#0b0a5f;
+    margin-left:0px;
+}   
