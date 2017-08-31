@@ -25,13 +25,6 @@ select,
 textarea {
     max-width: 280px;
 }
-button {
-    width:80px;
-    height:80px;
-    background-color:#ffffff;
-    color:#000000;
-    font-weight:bold;
-}
 table td{
     padding:2px;
     border:solid 5px #000000;
@@ -47,4 +40,24 @@ table tr{
     text-align:center;
     color:#0b0a5f;
     margin-left:0px;
-}   
+    font-family:'Comic Sans MS';
+}
+.btnCustom{
+    width:80px;
+    height:80px;
+    background-color:#ffffff;
+    font-family: 'Comic Sans MS';
+    color:#000000;
+    font-size:50px;
+    text-align:center;
+}
+#Jogadores {
+    width:30%;
+    margin:auto;
+    border:1px solid #000000;
+    border-radius:5px;
+    padding:2px;
+}
+.DisplayNone {
+   display:none;
+}

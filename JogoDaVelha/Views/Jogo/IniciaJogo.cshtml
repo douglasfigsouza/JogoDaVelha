@@ -1,41 +1,92 @@
-﻿<div class="row" id="jogo">
-    <div class="col-md-8">
-        <h1>Jogo Da Velha</h1>
+﻿<div class="row" id="Jogadores">
+    <div class="col-md-12">
+        <form id="formCadJog">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="Jog1" class="col-md-12 control-label">Jogador 1</label>
+                    <input type="text" class="form-control col-md-12" name="Jog1" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="control-label col-md-12">Escolha Sua Peça</label>
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="col-md-12">
+                        <label class="control-label radio-inline">
+                            <input type="radio" name="opJogX" value="X" id="opJog1X" onchange="SelecionaPeca('Jog1','X')" />X
+                        </label>
+                        <label class="control-label radio-inline">
+                            <input type="radio" name="opJogO" value="O" id="opJog1O" onchange="SelecionaPeca('Jog1','O')" />O
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label class="col-md-12 control-label">Jogador 2</label>
+                    <input type="text" class="form-control col-md-12" />
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="col-md-12">
+                        <label class="control-label radio-inline">
+                            <input type="radio" name="opJogX" value="X" id="opJog2X" onchange="SelecionaPeca('Jog2', 'X')" />X
+                        </label>
+                        <label class="control-label radio-inline">
+                            <input type="radio" name="opJogO" value="O" id="opJog2O"onchange="SelecionaPeca('Jog2','O')" />O
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary btn-block">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row DisplayNone" id="jogo">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Jogo Da Velha</h1>
+        </div>
     </div>
     <div class="col-md-8">
         <table>
             <tbody>
                 <tr>
                     <td>
-                        <button class="btn" id="Btn1" onclick="Jogada('Btn1')">X</button>
+                        <button class="btnCustom btn" id="Btn1" onclick="Jogada('Btn1')" disabled="true"></button>
                     </td>
                     <td>
-                        <button class="btn" id="Btn2" onclick="Jogada('Btn2')"></button>
+                        <button class="btnCustom btn" id="Btn2" onclick="Jogada('Btn2')"></button>
                     </td>
                     <td>
-                        <button class="btn" id="Btn3" onclick="Jogada('Btn3')"></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="btn" id="Btn4" onclick="Jogada('Btn4')"></button>
-                    </td>
-                    <td>
-                        <button class="btn" id="Btn5" onclick="Jogada('Btn5')"></button>
-                    </td>
-                    <td>
-                        <button class="btn" id="Btn6" onclick="Jogada('Btn6')"></button>
+                        <button class="btnCustom btn" id="Btn3" onclick="Jogada('Btn3')"></button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="btn" id="Btn7" onclick="Jogada('Btn7')"></button>
+                        <button class="btnCustom btn" id="Btn4" onclick="Jogada('Btn4')"></button>
                     </td>
                     <td>
-                        <button class="btn" id="Btn8" onclick="Jogada('Btn8')"></button>
+                        <button class="btnCustom btn" id="Btn5" onclick="Jogada('Btn5')"></button>
                     </td>
                     <td>
-                        <button class="btn" id="Btn9" onclick="Jogada('Btn9')"></button>
+                        <button class="btnCustom btn" id="Btn6" onclick="Jogada('Btn6')"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btnCustom btn" id="Btn7" onclick="Jogada('Btn7')"></button>
+                    </td>
+                    <td>
+                        <button class="btnCustom btn" id="Btn8" onclick="Jogada('Btn8')"></button>
+                    </td>
+                    <td>
+                        <button class="btnCustom btn" id="Btn9" onclick="Jogada('Btn9')"></button>
                     </td>
                 </tr>
             </tbody>
