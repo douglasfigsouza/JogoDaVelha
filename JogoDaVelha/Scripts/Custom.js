@@ -1,11 +1,14 @@
 ﻿var flag;
-var verEmpate=true;
+var testaMatriz = true;
+var verEmpate = true;
 var Jogadas = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 var Jogador1 = [{ nome: "" , peca: "" , numVitorias: 0 }];
 var Jogador2 = [{ nome: "", peca: "", numVitorias: 0 }];
 Jogador1.numVitorias = 0;
 Jogador2.numVitorias = 0;
 var Empate = 0;
+var regex = new RegExp("[0-9]");
+
 // função que escolhe x ou bolinha
 function SelecionaPeca(jog, op) {
     switch (jog)
@@ -148,6 +151,7 @@ function Jogada(op)
         }
         checkJogo();
     }
+
 }
 
 function checkJogo()
@@ -157,15 +161,11 @@ function checkJogo()
     {
         verficaCampeao();
         verEmpate = false;
-        alert(flag);
-        Empate = flag;
     }
     if (Jogadas[0][2] == Jogadas[1][1] && Jogadas[1][1] == Jogadas[2][0])
     {
-        verEmpate = 1;
         verficaCampeao();
-        Empate = flag;
-        alert(flag);
+        verEmpate = false;
     }
 
     for (var i = 0; i < 3; i++)
@@ -177,17 +177,27 @@ function checkJogo()
             {
                 verficaCampeao();
                 verEmpate = false;
-                Empate = flag;
-                alert(flag);
             }
             ////valida pela linhas verticais
             if (i == 0 && Jogadas[j][i] == Jogadas[j][i + 1] && Jogadas[j][i] == Jogadas[j][i + 2])
             {
                 verficaCampeao();
                 verEmpate = false;
-                Empate = flag;
-                alert(flag);
-            }       
+            }
+        }
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                testaMatriz = regex.test(Jogadas[j][i]);
+                if (testaMatriz == true)
+                {
+                    testaMatriz = true;
+                }
+                alert(testaMatriz);
+            }
+            if (testaMatriz == false)
+            {
+                verficaCampeao();
+            }
         }
     }
 }
@@ -204,7 +214,8 @@ function verficaCampeao()
     document.getElementById("Btn9").disabled = true;
 
 
-        if (Empate==2) {
+    if (flag == 2)
+    {
             Jogador1.numVitorias = Jogador1.numVitorias + 1;
             document.getElementById('jogador1').innerText = Jogador1.nome;
             document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
@@ -212,27 +223,19 @@ function verficaCampeao()
             document.getElementById('jogador2').innerText = Jogador2.nome;
             document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
         }
-        else if(Empate==1) {
+    else
+    {
             document.getElementById('jogador1').innerText = Jogador1.nome;
             document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
 
             Jogador2.numVitorias = Jogador2.numVitorias + 1;
             document.getElementById('jogador2').innerText = Jogador2.nome;
             document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
-        }
-        else if(Empate==0) {
-            alert(Empate);
-            document.getElementById('jogador1').innerText = Jogador1.nome;
-            document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
-            document.getElementById('jogador2').innerText = Jogador2.nome;
-            document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
-            Empate = Empate + 1;
-            document.getElementById('empate').innerText = Empate;
-
-        }
-
-
- 
+    }
+    if (verEmpate == true)
+    {
+        alert("empate");
+    }
 }
 function resetPartida()
 {
