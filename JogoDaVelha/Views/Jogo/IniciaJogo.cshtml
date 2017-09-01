@@ -78,43 +78,85 @@
             <h1>Jogo Da Velha</h1>
         </div>
     </div>
-    <div class="col-md-8">
-        <table>
-            <tbody>
-                <tr>
-                    <td >
-                        <button class="btnCustom btn" id="Btn1" onclick="Jogada('Btn1')"></button>
-                    </td>
-                    <td >
-                        <button class="btnCustom btn" id="Btn2" onclick="Jogada('Btn2')"></button>
-                    </td>
-                    <td >
-                        <button class="btnCustom btn" id="Btn3" onclick="Jogada('Btn3')"></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="btnCustom btn" id="Btn4" onclick="Jogada('Btn4')"></button>
-                    </td>
-                    <td>
-                        <button class="btnCustom btn" id="Btn5" onclick="Jogada('Btn5')"></button>
-                    </td>
-                    <td>
-                        <button class="btnCustom btn" id="Btn6" onclick="Jogada('Btn6')"></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="btnCustom btn" id="Btn7" onclick="Jogada('Btn7')"></button>
-                    </td>
-                    <td>
-                        <button class="btnCustom btn" id="Btn8" onclick="Jogada('Btn8')"></button>
-                    </td>
-                    <td>
-                        <button class="btnCustom btn" id="Btn9" onclick="Jogada('Btn9')"></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-md-8">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btnCustom btn" id="Btn1" onclick="Jogada('Btn1')"></button>
+                        </td>
+                        <td>
+                            <button class="btnCustom btn" id="Btn2" onclick="Jogada('Btn2')"></button>
+                        </td>
+                        <td>
+                            <button class="btnCustom btn" id="Btn3" onclick="Jogada('Btn3')"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btnCustom btn" id="Btn4" onclick="Jogada('Btn4')"></button>
+                        </td>
+                        <td>
+                            <button class="btnCustom btn" id="Btn5" onclick="Jogada('Btn5')"></button>
+                        </td>
+                        <td>
+                            <button class="btnCustom btn" id="Btn6" onclick="Jogada('Btn6')"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btnCustom btn" id="Btn7" onclick="Jogada('Btn7')"></button>
+                        </td>
+                        <td>
+                            <button class="btnCustom btn" id="Btn8" onclick="Jogada('Btn8')"></button>
+                        </td>
+                        <td>
+                            <button class="btnCustom btn" id="Btn9" onclick="Jogada('Btn9')"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row margimTop">
+        <div class="col-md-10">
+            <div class="col-md-5">
+                <button type="button" class="btn btn-danger" onclick="resetPartida();">Reiniciar</button>
+            </div>
+            <div class="col-md-5">
+                <button type="submit" class="btn btn-primary" onclick="resetaPartida();">Reiniciar</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="campeao">
+        <h2 id="vencedor"></h2>
+    </div>
+    <div class="row" id="placar">
+        <div class="col-md-12">
+            <h3 class="text-center">Placar</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Jogador 1</th>
+                        <th>Vitórias</th>
+                        <td>X</td>
+                        <th>Jogador 2</th>
+                        <th>Vitórias</th>
+                        <th>Empate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="jogador1"></td>
+                        <td id="vitoria1"></td>
+                        <td>x</td>
+                        <td id="jogador2"></td>
+                        <td id="vitoria2"></td>
+                        <td id="empate"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
