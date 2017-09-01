@@ -1,7 +1,7 @@
 ﻿var flag;
 var pecaJog1; 
 var pecaJog2;
-var Jogadas = [[1,2,3],[4,5,6],[7,8,9]];
+var Jogadas = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 // função que escolhe x ou bolinha
 function SelecionaPeca(jog, op) {
     switch (jog)
@@ -135,18 +135,44 @@ function Jogada(op)
                 Jogadas[2][2] = pecaJog2;
                 break;
         }
+        checkJogo();
     }
-    checkJogo();
 }
 
-function checkJogo(op)
+function checkJogo()
 {
-    for (var i = 0; i < 2; i++)
+    //var incCont1;
+    //var incCont2;
+    //if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2]==Jogadas[1][1])
+    //{
+
+    //}
+    //alert(Jogadas[0][0]+" "+Jogadas[1][0]+" "+Jogadas[2][0]);
+    //if(Jogadas[0][0] == Jogadas[1][0] && Jogadas[0][0]==Jogadas[2][0])
+    //{
+
+    //}
+    //else if (Jogadas[0][1] == Jogadas[1][1] && Jogadas[0][1] == Jogadas[2][1])
+    //{
+    //    alert("Gnahou 3")
+    //}
+    for (var i = 0; i < 3; i++)
     {
-        for (var j = 0; j < 2; j++)
+        for (var j = 0; j < 3; j++)
         {
-            alert(j + " " + i);
-            alert(Jogadas[i][j]);
+      
+            if (j==0 && Jogadas[j][i] == Jogadas[j + 1][i] && Jogadas[j][i] == Jogadas[j + 2][i])
+            {
+                alert("ganhou");
+            } 
+
+            if (j==i)
+            {
+                if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2] == Jogadas[1][1])
+                {
+                    alert("ganhou 2");
+                }
+            }
         }
     }
 }
