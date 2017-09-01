@@ -141,38 +141,31 @@ function Jogada(op)
 
 function checkJogo()
 {
-    //var incCont1;
-    //var incCont2;
-    //if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2]==Jogadas[1][1])
-    //{
+    // valida pela tranversal linhas e colunas iguais 
+    if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2] == Jogadas[1][1])
+    {
+        alert("ganhou 2");
+    }
+    if (Jogadas[0][2] == Jogadas[1][1] && Jogadas[1][1] == Jogadas[2][0])
+    {
+        alert(Jogadas[0][2]+" "+Jogadas[1][1] +""+Jogadas[2][0]);
+        alert("Testandidikdewsd");
+    }
 
-    //}
-    //alert(Jogadas[0][0]+" "+Jogadas[1][0]+" "+Jogadas[2][0]);
-    //if(Jogadas[0][0] == Jogadas[1][0] && Jogadas[0][0]==Jogadas[2][0])
-    //{
-
-    //}
-    //else if (Jogadas[0][1] == Jogadas[1][1] && Jogadas[0][1] == Jogadas[2][1])
-    //{
-    //    alert("Gnahou 3")
-    //}
     for (var i = 0; i < 3; i++)
     {
         for (var j = 0; j < 3; j++)
         {
-      
+            // valida pelas linhas na horizontal
             if (j==0 && Jogadas[j][i] == Jogadas[j + 1][i] && Jogadas[j][i] == Jogadas[j + 2][i])
             {
                 alert("ganhou");
-            } 
-
-            if (j==i)
-            {
-                if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2] == Jogadas[1][1])
-                {
-                    alert("ganhou 2");
-                }
             }
+            ////valida pela linhas verticais
+            if (i == 0 && Jogadas[j][i] == Jogadas[j][i + 1] && Jogadas[j][i] == Jogadas[j][i + 2])
+            {
+                alert("Ganhou 4");
+            }       
         }
     }
 }
