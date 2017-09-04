@@ -63,14 +63,14 @@ function CadastraJogadores()
 
     var inicio = form.inicia.value;
     if (inicio == 1) {
-        document.getElementById("jogadorInicial").innerText = "Jogador Inicial:" + Jogador1.nome;
-        document.getElementById("peca").innerText = "Simbolo:" + Jogador1.peca;
+        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador1.nome;
+        document.getElementById("peca").innerText = "Símbolo:" + Jogador1.peca;
         flag = 1;
     }
     else
     {
-        document.getElementById("jogadorInicial").innerText = "Jogador Inicial:" + Jogador2.nome;
-        document.getElementById("peca").innerText = "Jogador Inicial:" + Jogador2.peca;
+        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador2.nome;
+        document.getElementById("peca").innerText = "Símbolo:" + Jogador2.peca;
         flag = 2;
     }
 }
@@ -111,7 +111,7 @@ function Jogada(op)
                 Jogadas[2][2] = Jogador1.peca;
                 break;
         }
-        checkJogo(op);
+        checkJogo(flag);
     }
     else
     {
@@ -148,15 +148,14 @@ function Jogada(op)
                 Jogadas[2][2] = Jogador2.peca;
                 break;
         }
-        checkJogo();
+        checkJogo(flag);
     }
 
 }
 
-function checkJogo()
+function checkJogo(jog)
 {
     numJogadas = numJogadas + 1;
-    alert(numJogadas);
     // valida pela tranversal linhas e colunas iguais 
     if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2] == Jogadas[1][1])
     {
@@ -194,6 +193,18 @@ function checkJogo()
             verficaCampeao();
         }
     }
+    //alterna o jogador/peça na tela 
+    if(jog==1)
+    {
+        document.getElementById("jogadorAtual").innerText="Jogador: "+Jogador1.nome;
+        document.getElementById("peca").innerText="Simbolo: "+Jogador1.peca;
+    }
+    else
+    {
+        document.getElementById("jogadorAtual").innerText="Jogador: "+Jogador2.nome;
+        document.getElementById("peca").innerText="Simbolo: "+Jogador2.peca;
+    }
+
 }
 function verficaCampeao()
 {
@@ -239,17 +250,19 @@ function verficaCampeao()
         document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
 
         verEmpate = true;
-        alert("Jogador: " + Jogador1.nome + " Campeão");
+        alert("Jogador: " + Jogador2.nome + " Campeão");
     }
 }
-function resetPartida()
+function reiniciaPartida()
 {
     if (flag == 2) {
-        document.getElementById("jogadorInicial").innerText = "Jogador Inicial:" + Jogador2.nome;
-        document.getElementById("peca").innerText = "Jogador Inicial:" + Jogador2.peca;
-    }else{
-        document.getElementById("jogadorInicial").innerText = "Jogador Inicial:" + Jogador1.nome;
-        document.getElementById("peca").innerText = "Jogador Inicial:" + Jogador1.peca;
+        alert("Quem começa: "+Jogador2.nome);
+        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador2.nome;
+        document.getElementById("peca").innerText = "Simbolo" + Jogador2.peca;
+    } else {
+        alert("Quem começa: " + Jogador1.nome);
+        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador1.nome;
+        document.getElementById("peca").innerText = "Simbolo" + Jogador1.peca;
     }
     
     Jogadas[0][0] = 1;
@@ -287,4 +300,70 @@ function resetaPartida()
     $("#Jogadores").addClass('DisplayBlock');
     $("#jogo").removeClass("DisplayBlock");
     $("#jogo").addClass("DisplayNone");
+    Empate = 0
+    numJogadas = 0;
+
+    document.getElementById('jogador1').innerText = "";
+    document.getElementById('vitoria1').innerText = "";
+
+    document.getElementById('jogador2').innerText = "";
+    document.getElementById('vitoria2').innerText = "";
+    
+    document.getElementById('empate').innerText = "";
+
+    Jogador1.nome = "";
+    Jogador1.peca = "";
+    Jogador1.numVitorias = 0;
+
+    Jogador2.nome = "";
+    Jogador2.peca = "";
+    Jogador2.numVitorias = 0;
+    
+    document.getElementById("Jog1").value = "";
+    document.getElementById("Jog2").value = "";
+
+    document.getElementById("opJog1O").removeAttribute('disabled');
+    document.getElementById("opJog2O").removeAttribute('disabled');
+
+    document.getElementById("opJog1X").removeAttribute('disabled');
+    document.getElementById("opJog2X").removeAttribute('disabled');
+
+    document.getElementById("opJog1O").checked=false;
+    document.getElementById("opJog2O").checked=false;
+
+    document.getElementById("opJog1X").checked=false;
+    document.getElementById("opJog2X").checked = false;
+
+    document.getElementById("iniciaJog1").checked = false;
+    document.getElementById("iniciaJog2").checked = false;
+
+    document.getElementById("Btn1").removeAttribute("disabled");
+    document.getElementById("Btn2").removeAttribute("disabled");
+    document.getElementById("Btn3").removeAttribute("disabled");
+    document.getElementById("Btn4").removeAttribute("disabled");
+    document.getElementById("Btn5").removeAttribute("disabled");
+    document.getElementById("Btn6").removeAttribute("disabled");
+    document.getElementById("Btn7").removeAttribute("disabled");
+    document.getElementById("Btn8").removeAttribute("disabled");
+    document.getElementById("Btn9").removeAttribute("disabled");
+
+    Jogadas[0][0] = 1;
+    Jogadas[1][0] = 2;
+    Jogadas[2][0] = 3;
+    Jogadas[0][1] = 4;
+    Jogadas[1][1] = 5;
+    Jogadas[2][1] = 6;
+    Jogadas[0][2] = 7;
+    Jogadas[1][2] = 8;
+    Jogadas[2][2] = 9;
+
+    document.getElementById("Btn1").innerText = "";
+    document.getElementById("Btn2").innerText = "";
+    document.getElementById("Btn3").innerText = "";
+    document.getElementById("Btn4").innerText = "";
+    document.getElementById("Btn5").innerText = "";
+    document.getElementById("Btn6").innerText = "";
+    document.getElementById("Btn7").innerText = "";
+    document.getElementById("Btn8").innerText = "";
+    document.getElementById("Btn9").innerText = "";
 }

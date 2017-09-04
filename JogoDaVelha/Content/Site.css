@@ -3,7 +3,17 @@
     padding-bottom: 20px;
 
 }
-
+caption {
+    font-family:'Comic Sans MS';
+    font-size:20pt;
+}
+table td{
+    padding:2px;
+    border:solid 5px #000000;
+}
+table tr{
+    border:solid 5px #000000;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -25,13 +35,6 @@ select,
 textarea {
     max-width: 280px;
 }
-table td{
-    padding:2px;
-    border:solid 5px #000000;
-}
-table tr{
-    border:solid 5px #000000;
-}
 #jogo {
     width:50%;
     margin:auto;
@@ -42,6 +45,32 @@ table tr{
     margin-left:0px;
     font-family:'Comic Sans MS';
 }
+#Jogadores {
+    width:30%;
+    margin:auto;
+    border:1px solid #000000;
+    border-radius:5px;
+    padding:2px;
+}
+#painelInformacoes{
+    font-size:10pt;
+    padding:20px;
+}
+#tblPlacar {
+    width:450px;
+}
+#tblPlacar tr {
+    padding:0px;
+}
+#tblPlacar th tr{
+    padding:0px;
+}
+#painelJogo {
+    padding-left:80px;
+}
+#btnReseta {
+    margin-left:98px;
+}
 .btnCustom{
     width:80px;
     height:80px;
@@ -51,13 +80,7 @@ table tr{
     font-size:50px;
     text-align:center;
 }
-#Jogadores {
-    width:30%;
-    margin:auto;
-    border:1px solid #000000;
-    border-radius:5px;
-    padding:2px;
-}
+
 .DisplayNone {
    display:none;
 }

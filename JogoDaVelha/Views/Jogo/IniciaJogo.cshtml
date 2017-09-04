@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12 form-group">
                     <label for="Jog1" class="col-md-12 control-label">Jogador 1</label>
-                    <input type="text" class="form-control col-md-12" name="Jog1" />
+                    <input type="text" class="form-control col-md-12" name="Jog1" id="Jog1" />
                 </div>
             </div>
             <div class="row">
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12 form-group">
                     <label class="col-md-12 control-label">Jogador 2</label>
-                    <input type="text" class="form-control col-md-12" name="Jog2" />
+                    <input type="text" class="form-control col-md-12" name="Jog2" id="Jog2" />
                 </div>
                 <div class="col-md-12 form-group">
                     <div class="col-md-12">
@@ -49,10 +49,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label class="control-label radio-inline">
-                                <input type="radio" name="inicia" value="1" />Jogador 1
+                                <input type="radio" name="inicia" value="1" id="iniciaJog1" />Jogador 1
                             </label>
                             <label class="control-label radio-inline">
-                                <input type="radio" name="inicia" value="2" />Jogador 2
+                                <input type="radio" name="inicia" value="2"id="iniciaJog2" />Jogador 2
                             </label>
                         </div>
                     </div>
@@ -60,103 +60,97 @@
             </div>
             <div class="row margimTop">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary btn-block" onclick="CadastraJogadores()">Cadastrar</button>
+                    <button type="button" class="btn btn-primary btn-block" onclick="CadastraJogadores()">Iniciar</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 <div class="row DisplayNone" id="jogo">
-
-    <div class="row" id="informacoes">
-        <h3 id="jogadorInicial"></h3>
-        <h3 id="peca"></h3>
-    </div>
-
-    <div class="row">
+    <div class="row" id="painelInformacoes">
         <div class="col-md-8">
-            <h1>Jogo Da Velha</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <button class="btnCustom btn" id="Btn1" onclick="Jogada('Btn1')"></button>
-                        </td>
-                        <td>
-                            <button class="btnCustom btn" id="Btn2" onclick="Jogada('Btn2')"></button>
-                        </td>
-                        <td>
-                            <button class="btnCustom btn" id="Btn3" onclick="Jogada('Btn3')"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btnCustom btn" id="Btn4" onclick="Jogada('Btn4')"></button>
-                        </td>
-                        <td>
-                            <button class="btnCustom btn" id="Btn5" onclick="Jogada('Btn5')"></button>
-                        </td>
-                        <td>
-                            <button class="btnCustom btn" id="Btn6" onclick="Jogada('Btn6')"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btnCustom btn" id="Btn7" onclick="Jogada('Btn7')"></button>
-                        </td>
-                        <td>
-                            <button class="btnCustom btn" id="Btn8" onclick="Jogada('Btn8')"></button>
-                        </td>
-                        <td>
-                            <button class="btnCustom btn" id="Btn9" onclick="Jogada('Btn9')"></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row margimTop">
-        <div class="col-md-10">
-            <div class="col-md-5">
-                <button type="button" class="btn btn-danger" onclick="resetPartida();">Reiniciar</button>
+            <div class="row" id="informacoes">
+                <h4 id="jogadorAtual"></h4>
+                <h4 id="peca"></h4>
             </div>
-            <div class="col-md-5">
-                <button type="submit" class="btn btn-primary" onclick="resetaPartida();">Reiniciar</button>
+        </div>
+        <div class="row" id="placar">
+            <div class="col-md-12">
+                <table class="table" id="tblPlacar">
+                    <caption>Placar</caption>
+                    <thead>
+                        <tr>
+                            <th>Jogador 1</th>
+                            <th>Vitórias</th>
+                            <td>X</td>
+                            <th>Jogador 2</th>
+                            <th>Vitórias</th>
+                            <th>Empate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="jogador1"></td>
+                            <td id="vitoria1"></td>
+                            <td>x</td>
+                            <td id="jogador2"></td>
+                            <td id="vitoria2"></td>
+                            <td id="empate"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <div class="row" id="campeao">
-        <h2 id="vencedor"></h2>
-    </div>
-    <div class="row" id="placar">
-        <div class="col-md-12">
-            <h3 class="text-center">Placar</h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Jogador 1</th>
-                        <th>Vitórias</th>
-                        <td>X</td>
-                        <th>Jogador 2</th>
-                        <th>Vitórias</th>
-                        <th>Empate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="jogador1"></td>
-                        <td id="vitoria1"></td>
-                        <td>x</td>
-                        <td id="jogador2"></td>
-                        <td id="vitoria2"></td>
-                        <td id="empate"></td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="row" id="painelJogo">
+        <div class="row">
+            <div class="col-md-8">
+                <table id="tblJogo">
+                    <caption>Jogo Da Velha</caption>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button class="btnCustom btn" id="Btn1" onclick="Jogada('Btn1')"></button>
+                            </td>
+                            <td>
+                                <button class="btnCustom btn" id="Btn2" onclick="Jogada('Btn2')"></button>
+                            </td>
+                            <td>
+                                <button class="btnCustom btn" id="Btn3" onclick="Jogada('Btn3')"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnCustom btn" id="Btn4" onclick="Jogada('Btn4')"></button>
+                            </td>
+                            <td>
+                                <button class="btnCustom btn" id="Btn5" onclick="Jogada('Btn5')"></button>
+                            </td>
+                            <td>
+                                <button class="btnCustom btn" id="Btn6" onclick="Jogada('Btn6')"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btnCustom btn" id="Btn7" onclick="Jogada('Btn7')"></button>
+                            </td>
+                            <td>
+                                <button class="btnCustom btn" id="Btn8" onclick="Jogada('Btn8')"></button>
+                            </td>
+                            <td>
+                                <button class="btnCustom btn" id="Btn9" onclick="Jogada('Btn9')"></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3">
+                                <button type="button" class="btn btn-danger" onclick="reiniciaPartida();">Reiniciar</button>
+                                <button type="submit" class="btn btn-primary" onclick="resetaPartida(); "id="btnReseta">Resetar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
