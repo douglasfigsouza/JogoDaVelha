@@ -1,5 +1,4 @@
 ﻿var flag;
-var testaMatriz = true;
 var verEmpate = true;
 var Jogadas = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 var Jogador1 = [{ nome: "" , peca: "" , numVitorias: 0 }];
@@ -7,7 +6,7 @@ var Jogador2 = [{ nome: "", peca: "", numVitorias: 0 }];
 Jogador1.numVitorias = 0;
 Jogador2.numVitorias = 0;
 var Empate = 0;
-var regex = new RegExp("[0-9]");
+var numJogadas=0;
 
 // função que escolhe x ou bolinha
 function SelecionaPeca(jog, op) {
@@ -156,16 +155,20 @@ function Jogada(op)
 
 function checkJogo()
 {
+    numJogadas = numJogadas + 1;
+    alert(numJogadas);
     // valida pela tranversal linhas e colunas iguais 
     if (Jogadas[0][0] == Jogadas[1][1] && Jogadas[2][2] == Jogadas[1][1])
     {
-        verficaCampeao();
+        numJogadas = 0;
         verEmpate = false;
+        verficaCampeao();
     }
     if (Jogadas[0][2] == Jogadas[1][1] && Jogadas[1][1] == Jogadas[2][0])
     {
-        verficaCampeao();
+        numJogadas = 0;
         verEmpate = false;
+        verficaCampeao();
     }
 
     for (var i = 0; i < 3; i++)
@@ -175,29 +178,20 @@ function checkJogo()
             // valida pelas linhas na horizontal
             if (j==0 && Jogadas[j][i] == Jogadas[j + 1][i] && Jogadas[j][i] == Jogadas[j + 2][i])
             {
-                verficaCampeao();
+                numJogadas = 0;
                 verEmpate = false;
+                verficaCampeao();
             }
             ////valida pela linhas verticais
             if (i == 0 && Jogadas[j][i] == Jogadas[j][i + 1] && Jogadas[j][i] == Jogadas[j][i + 2])
             {
-                verficaCampeao();
+                numJogadas = 0;
                 verEmpate = false;
+                verficaCampeao();
             }
         }
-        for (var i = 0; i < 3; i++) {
-            for (var j = 0; j < 3; j++) {
-                testaMatriz = regex.test(Jogadas[j][i]);
-                if (testaMatriz == true)
-                {
-                    testaMatriz = true;
-                }
-                alert(testaMatriz);
-            }
-            if (testaMatriz == false)
-            {
-                verficaCampeao();
-            }
+        if (verEmpate == true && numJogadas == 9) {
+            verficaCampeao();
         }
     }
 }
@@ -213,28 +207,39 @@ function verficaCampeao()
     document.getElementById("Btn8").disabled = true;
     document.getElementById("Btn9").disabled = true;
 
+    if (numJogadas == 9 && verEmpate == true) {
+        numJogadas = 0;
+        Empate = Empate + 1;
+        document.getElementById('jogador1').innerText = Jogador1.nome;
+        document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
 
-    if (flag == 2)
-    {
-            Jogador1.numVitorias = Jogador1.numVitorias + 1;
-            document.getElementById('jogador1').innerText = Jogador1.nome;
-            document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
+        document.getElementById('jogador2').innerText = Jogador2.nome;
+        document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
 
-            document.getElementById('jogador2').innerText = Jogador2.nome;
-            document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
-        }
-    else
-    {
-            document.getElementById('jogador1').innerText = Jogador1.nome;
-            document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
-
-            Jogador2.numVitorias = Jogador2.numVitorias + 1;
-            document.getElementById('jogador2').innerText = Jogador2.nome;
-            document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
+        document.getElementById('empate').innerText = Empate;
+        alert("Empate!");
     }
-    if (verEmpate == true)
-    {
-        alert("empate");
+    else if (flag == 2) {
+        Jogador1.numVitorias = Jogador1.numVitorias + 1;
+        document.getElementById('jogador1').innerText = Jogador1.nome;
+        document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
+
+        document.getElementById('jogador2').innerText = Jogador2.nome;
+        document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
+
+        verEmpate = true;
+        alert("Jogador: "+Jogador1.nome+" Campeão");
+    }
+    else {
+        document.getElementById('jogador1').innerText = Jogador1.nome;
+        document.getElementById('vitoria1').innerText = Jogador1.numVitorias;
+
+        Jogador2.numVitorias = Jogador2.numVitorias + 1;
+        document.getElementById('jogador2').innerText = Jogador2.nome;
+        document.getElementById('vitoria2').innerText = Jogador2.numVitorias;
+
+        verEmpate = true;
+        alert("Jogador: " + Jogador1.nome + " Campeão");
     }
 }
 function resetPartida()
