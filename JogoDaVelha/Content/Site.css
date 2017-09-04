@@ -4,8 +4,11 @@
 
 }
 caption {
-    font-family:'Comic Sans MS';
+    font-family:Arial;
     font-size:20pt;
+}
+table {
+    text-align:center;
 }
 table td{
     padding:2px;
@@ -43,7 +46,7 @@ textarea {
     text-align:center;
     color:#0b0a5f;
     margin-left:0px;
-    font-family:'Comic Sans MS';
+    font-family:Arial;
 }
 #Jogadores {
     width:30%;
@@ -54,7 +57,6 @@ textarea {
 }
 #painelInformacoes{
     font-size:10pt;
-    padding:20px;
 }
 #tblPlacar {
     width:450px;
@@ -75,7 +77,7 @@ textarea {
     width:80px;
     height:80px;
     background-color:#ffffff;
-    font-family: 'Comic Sans MS';
+    font-family: Arial;
     color:#000000;
     font-size:50px;
     text-align:center;

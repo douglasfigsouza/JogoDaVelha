@@ -63,14 +63,14 @@ function CadastraJogadores()
 
     var inicio = form.inicia.value;
     if (inicio == 1) {
-        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador1.nome;
-        document.getElementById("peca").innerText = "Símbolo:" + Jogador1.peca;
+        document.getElementById("jogadorAtual").innerText = " " + Jogador1.nome;
+        document.getElementById("peca").innerText = " " + Jogador1.peca;
         flag = 1;
     }
     else
     {
-        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador2.nome;
-        document.getElementById("peca").innerText = "Símbolo:" + Jogador2.peca;
+        document.getElementById("jogadorAtual").innerText = " " + Jogador2.nome;
+        document.getElementById("peca").innerText = " " + Jogador2.peca;
         flag = 2;
     }
 }
@@ -196,13 +196,13 @@ function checkJogo(jog)
     //alterna o jogador/peça na tela 
     if(jog==1)
     {
-        document.getElementById("jogadorAtual").innerText="Jogador: "+Jogador1.nome;
-        document.getElementById("peca").innerText="Simbolo: "+Jogador1.peca;
+        document.getElementById("jogadorAtual").innerText=" "+Jogador1.nome;
+        document.getElementById("peca").innerText=" "+Jogador1.peca;
     }
     else
     {
-        document.getElementById("jogadorAtual").innerText="Jogador: "+Jogador2.nome;
-        document.getElementById("peca").innerText="Simbolo: "+Jogador2.peca;
+        document.getElementById("jogadorAtual").innerText=" "+Jogador2.nome;
+        document.getElementById("peca").innerText=" "+Jogador2.peca;
     }
 
 }
@@ -257,12 +257,12 @@ function reiniciaPartida()
 {
     if (flag == 2) {
         alert("Quem começa: "+Jogador2.nome);
-        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador2.nome;
-        document.getElementById("peca").innerText = "Simbolo" + Jogador2.peca;
+        document.getElementById("jogadorAtual").innerText = " " + Jogador2.nome;
+        document.getElementById("peca").innerText = " " + Jogador2.peca;
     } else {
         alert("Quem começa: " + Jogador1.nome);
-        document.getElementById("jogadorAtual").innerText = "Jogador:" + Jogador1.nome;
-        document.getElementById("peca").innerText = "Simbolo" + Jogador1.peca;
+        document.getElementById("jogadorAtual").innerText = " " + Jogador1.nome;
+        document.getElementById("peca").innerText = " " + Jogador1.peca;
     }
     
     Jogadas[0][0] = 1;
